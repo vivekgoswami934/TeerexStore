@@ -5,10 +5,20 @@ import "./Card.css";
 
 const Card = ({ e }) => {
   const { cart, setCart } = useGlobalContext();
+
   const handleClick = () => {
     setCart([...cart, e]);
   };
-  console.log(cart.includes(e))
+
+  // console.log("vdakjsd" ,cart.includes(e))
+
+   const check  = ( id ) => {
+      const data = cart.filter(el => el.id == id)
+     console.log(data)
+      return data.length ? true : false
+   }
+
+
   return (
     <div className="card">
       <div className="product_name">{e.name}</div>
@@ -19,12 +29,10 @@ const Card = ({ e }) => {
       <div>Color: {e.color}</div>
       <div className="bottom_section">
         <div className="product_price">Rs {e.price}</div>
-        {cart.includes(e) ? (
+        {check(e.id) ? (
           <Counter e={e} />
         ) : (
-          <button className="add_to_cart" onClick={handleClick}>
-            Add to Cart
-          </button>
+          <button className="add_to_cart" onClick={handleClick}>  Add to Cart </button>
         )}
       </div>
     </div>

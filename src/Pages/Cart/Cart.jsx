@@ -4,7 +4,18 @@ import "./Cart.css";
 
 const Cart = () => {
   const {cart,setCart}=useGlobalContext();
-  console.log(cart);
+
+
+  const handleClick = (id) => {
+    console.log(id)
+   
+    const data = cart.filter(el => el.id != id )
+
+    setCart(data)
+  }
+
+
+
   return (
     <div className="cart">
       {cart && cart.map((e)=>(
@@ -20,7 +31,7 @@ const Cart = () => {
             <option value="3">Qty. 3</option>
             <option value="4">Qty. 4</option>
           </select>
-          <button>Delete</button>
+          <button onClick={() => handleClick(e.id)}>Delete</button>
         </div>
       ))}
     </div>
