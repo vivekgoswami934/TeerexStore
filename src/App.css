@@ -1,0 +1,17 @@
+
+img{
+  height: 150px;
+  width: 150px;
+}
+.App{
+  /* display: flex; */
+  margin: auto;
+  text-align: center;
+  width: 100vw;
+  height: max-content;
+  /* justify-content: center; */
+  align-items: center;
+  background: #f0f2f5;
+  font-family: Arial, sans-serif;
+  width: 100%;
+}
