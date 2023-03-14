@@ -3,8 +3,11 @@ import "./Navbar.css";
 import a from "../../images/logo.png";
 import { Link } from "react-router-dom";
 import { BsCart2 } from "react-icons/bs";
+import { useGlobalContext } from "../../Context";
 
 const Navbar = () => {
+  const { cart } = useGlobalContext();
+
   return (
     <div className="navbar">
       <Link to="/" className="logo_details link">
@@ -16,7 +19,8 @@ const Navbar = () => {
           Products
         </Link>
         <Link className="link" to="/cart">
-          <BsCart2 />
+          <span><BsCart2 /> {cart?.length}</span>
+          
         </Link>
       </span>
     </div>
