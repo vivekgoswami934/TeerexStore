@@ -4,10 +4,10 @@ const Counter = ({e}) => {
     const [qty,setQty] = useState(e.quantity);
     
     const handleDec=()=>{
-        setQty(qty+1)
+        setQty(qty-1)
     }
     const handleInc=()=>{
-        setQty(qty-1)
+        setQty(qty+1)
     }
   return (
     <div>

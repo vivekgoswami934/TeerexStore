@@ -9,12 +9,13 @@ const Filter = () => {
   let initialGenderParams = searchParams.get("gender");
   let initialPriceParams = searchParams.get("price");
   let initialTyperParams = searchParams.getAll("type");
+
+
   const [name, setName] = useState(initialNameParams || []);
   const [gender, setGender] = useState(initialGenderParams || "");
   const [price, setPrice] = useState(initialPriceParams|| "");
   const [type, setType] = useState(initialTyperParams || "");
 
-   console.log(type , name.includes("Hoodie"))
 
   const handleNameParams = (e) => {
     const option = e.target.value; // red
@@ -51,6 +52,9 @@ const Filter = () => {
     }
     setType(newCategory);
   }
+
+
+
   useEffect(() => {
     if (name ||gender || price) {                                    // || sortBy
       const params = {};
@@ -58,10 +62,9 @@ const Filter = () => {
       gender && (params.gender = gender);
       price && (params.price = price)
       type && (params.type = type)
-    //   sortBy && (params.sortBy = sortBy);
       setSearchParams(params);
     }
-  }, [name,gender,price,type,setGender, setSearchParams]);
+  }, [name,gender,price,type, setSearchParams]);
 
   return (
     <div className="sidebar">
